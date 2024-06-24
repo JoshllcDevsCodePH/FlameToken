@@ -245,8 +245,8 @@ const App = () => {
                 padding: 0 16px;
               }
             .bottom-bar button {
-                width: 100px;
-                height: 60px;
+                width: 70px;
+                height: 40px;
                 font-size: 12px;
               }
             .main-content {
