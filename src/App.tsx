@@ -34,14 +34,16 @@ const BoostsLayout = ({ onBack, points, setPoints }: { onBack: () => void, point
 
   return (
     <div className="boosts-layout bg-gradient-main min-h-screen px-4 flex flex-col items-center text-white font-medium">
-      <h1 className="text-5xl font-bold mt-8">Boosts</h1>
+      <div className="flex justify-between items-center mb-8">
+        <button className="bg-[#fad258] py-2 px-4 rounded-xl text-black" onClick={onBack}>
+          <Arrow size={18} className="mr-2" /> Back
+        </button>
+        <h1 className="text-5xl font-bold">Boosts</h1>
+      </div>
       <div className="mt-8">
         {/* Add your Boosts content here */}
         <p className="text-lg">This is the Boosts page. Here you can find various boosts to enhance your experience.</p>
       </div>
-      <button onClick={onBack} className="mt-8 bg-[#fad258] py-2 px-4 rounded-xl text-black">
-        Back
-      </button>
       <div className="mt-4 flex gap-4">
         <button className="bg-[#fad258] py-2 px-4 rounded-xl" style={{ width: '200px', height: '200px' }} onClick={handleUpgradeTap}>
           Upgrade Tap (Level {tapLevel}) - Cost: {tapUpgradeCost} points
@@ -54,17 +56,19 @@ const BoostsLayout = ({ onBack, points, setPoints }: { onBack: () => void, point
   );
 };
 
-const EarnLayout = () => {
+const EarnLayout = ({ setShowEarn }: { setShowEarn: (showEarn: boolean) => void }) => {
   return (
     <div className="earn-layout bg-gradient-main min-h-screen px-4 flex flex-col items-center text-white font-medium">
-      <h1 className="text-5xl font-bold mt-8">Earn</h1>
+      <div className="flex justify-between items-center mb-8">
+        <button className="bg-[#fad258] py-2 px-4 rounded-xl text-black" onClick={() => setShowEarn(false)}>
+          <Arrow size={18} className="mr-2" /> Back
+        </button>
+        <h1 className="text-5xl font-bold">Earn</h1>
+      </div>
       <div className="mt-8">
         {/* Add your Earn content here */}
         <p className="text-lg">This is the Earn page. Here you can find various ways to earn points.</p>
       </div>
-      <button className="mt-8 bg-[#fad258] py-2 px-4 rounded-xl text-black">
-        Back
-      </button>
       <div className="mt-4 flex gap-4">
         {/* Add your Earn buttons here */}
         <button className="bg-[#fad258] py-2 px-4 rounded-xl" style={{ width: '200px', height: '200px' }}>
@@ -81,7 +85,7 @@ const App = () => {
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
   const [showBoosts, setShowBoosts] = useState(false);
   const [showEarn, setShowEarn] = useState(false);
-  const [isNewUser, setIsNewUser] = useState(true); // Add a flag to track if the user is new
+  const [isNewUser, setIsNewUser] = useState(true); // Add a flag to track if theuser is new
   const [showNewUserDialog, setShowNewUserDialog] = useState(false); // Add a flag to track if the new user dialog should be shown
   const developerUsername = 'titimoburat_01'; // Replace with the actual username of the developer
 
@@ -91,7 +95,7 @@ const App = () => {
     }
   }, [isNewUser]);
 
-  const handleNewUserDialogClose = ()=> {
+  const handleNewUserDialogClose = () => {
     setShowNewUserDialog(false);
     setIsNewUser(false);
     setPoints(5000); // Reward 5000 coins to the new user
@@ -115,7 +119,7 @@ const App = () => {
   };
 
   const handleAnimationEnd = (id: number) => {
-    setClicks((prevClicks) => prevClicks.filter((click) => click.id!== id));
+    setClicks((prevClicks) => prevClicks.filter((click) => click.id !== id));
   };
 
   useEffect(() => {
@@ -139,10 +143,10 @@ const App = () => {
           </div>
         </div>
       )}
-      {showBoosts? (
+      {showBoosts ? (
         <BoostsLayout onBack={() => setShowBoosts(false)} points={points} setPoints={setPoints} />
-      ) : showEarn? (
-        <EarnLayout />
+      ) : showEarn ? (
+        <EarnLayout setShowEarn={setShowEarn} />
       ) : (
         <>
           {/* Top bar */}
@@ -225,15 +229,15 @@ const App = () => {
         {
           `
             @media only screen and (max-width: 768px) {
-            .boosts-layout,.earn-layout {
+             .boosts-layout,.earn-layout {
                 padding: 16px;
               }
-            .boosts-layout button,.earn-layout button {
+             .boosts-layout button,.earn-layout button {
                 width: 100;
                 height: 100px;
                 font-size: 16px;
               }
-            .bottom-bar {
+             .bottom-bar {
                 margin-bottom: 12px;
                 flex-direction: column;
                 align-items: center;
@@ -244,16 +248,16 @@ const App = () => {
                 right: 0;
                 padding: 0 16px;
               }
-            .bottom-bar button {
+             .bottom-bar button {
                 width: 70px;
                 height: 40px;
                 font-size: 12px;
               }
-            .main-content {
+             .main-content {
                 flex-direction: column;
                 align-items: center;
               }
-            .main-content img {
+             .main-content img {
                 width: 128px;
                 height: 128px;
               }
