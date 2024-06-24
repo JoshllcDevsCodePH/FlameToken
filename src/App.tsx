@@ -180,7 +180,7 @@ const App = () => {
               </div>
             </div>
             <div className="flex-grow flex items-center max-w-60 text-sm">
-              <div className="w-full bg-[#eec203] py-4 rounded-2xl flex justify-around">
+              <div className="w-full bg-[#eec203] py-2 rounded-2xl flex justify-around">
                 <button className="flex flex-col items-center gap-1">
                   <img src={bear} width={24} height={24} alt="Bear" />
                   <span>Frens</span>
