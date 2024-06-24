@@ -234,7 +234,7 @@ const App = () => {
                 font-size: 16px;
               }
             .bottom-bar {
-                margin: 10px;
+                margin-bottom: 30px;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
@@ -244,8 +244,8 @@ const App = () => {
                 padding: 0 16px;
               }
             .bottom-bar button {
-                width: 100px;
-                height: 50px;
+                width: 70px;
+                height: 40px;
                 font-size: 12px;
               }
             .main-content {
