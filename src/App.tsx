@@ -234,9 +234,10 @@ const App = () => {
                 font-size: 16px;
               }
             .bottom-bar {
-                margin-bottom: 30px;
+                margin-bottom: 20px;
                 flex-direction: column;
                 align-items: center;
+                text-align: center;
                 justify-content: center;
                 width: 100vw;
                 left: 0;
@@ -244,8 +245,8 @@ const App = () => {
                 padding: 0 16px;
               }
             .bottom-bar button {
-                width: 70px;
-                height: 40px;
+                width: 100px;
+                height: 60px;
                 font-size: 12px;
               }
             .main-content {
